@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<html>
+<body>
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div> 
+    {% endfor %}
+</div>
+
+    
+<form action="{{url_for('index')}}" method="POST" class="id">
+    <center><h1>CONTACT US</h1>
+        <!-- <form action="{{ url_for('index') }}" method="POST"> -->
+       
+            {{ form.hidden_tag() }}
+            {{ form.name.label(class="m0")}}
+            {{ form.name(class="card0") }} 
+           
+            {{ form.email.label(class="m1")}}
+            {{ form.email(class="card1") }}
+            {{ form.pno.label(class="m2")}}
+            {{ form.pno(class="card2") }}
+          
+           
+        
+            {{ form.query_msg.label(class="m4")}}
+            {{ form.query_msg(class="card4") }}
+         
+        
+            {{ form.submit(class="card5") }}
+          </form>
+    
+    </center>
+</form>
+{% endblock %}
+</body>
+</html>
